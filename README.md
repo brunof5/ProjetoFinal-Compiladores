@@ -8,8 +8,7 @@ Trabalho desenvolvido na disciplica de Compiladores - GCC130, 2023/2, UFLA
   *  Texto: trem
   * Booleano: paia (verdadeiro: god, falso: bigode)
 
-* Nome, abertura e fechamento de bloco:
-  * Nome: comecou
+* Abertura e fechamento de bloco:
   * Abertura: {
   * Fechamento: }
 
@@ -41,7 +40,24 @@ Trabalho desenvolvido na disciplica de Compiladores - GCC130, 2023/2, UFLA
 * Fim de linha: !
 
 * Estruturas:
-  * Condicional if: truco (condição) { bloco }
-  * Condicional else if: meiPau (condição) { bloco }
-  * Condicional else: corri { bloco }
-  * Repetição while: todaVida (condição) { bloco }
+  * Condicional if: truco
+  * Condicional else if: meiPau
+  * Condicional else: corri
+  * Repetição while: todaVida
+
+* Funções Específicas:
+  * Ler uma entrada qualquer: ler
+  * Imprimir na tela uma variável qualquer: mostrar
+ 
+* Parênteses:
+  * Abre parênteses: (
+  * Fecha parênteses: )
+ 
+* Representações:
+  * Variável: [a..z] ([a..zA..Z]+[0..9])*
+  * Número Inteiro: [0..9]+
+  * Número Real: [0..9]+ . [0..9]+
+ 
+## Analisador Léxico
+A análise léxica de algum código na linguagem UaiScript é realizada executando o programa ExemploLexer.java dentro da pasta src.
+**Observação**: o código deve estar em formato txt dentro da pasta casosTeste.
