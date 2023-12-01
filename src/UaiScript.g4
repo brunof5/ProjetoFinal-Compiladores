@@ -7,8 +7,6 @@ Tipo: 'cado' | 'tiquim' | 'trem' | 'paia';
 Est: 'truco' | 'meiPau' | 'corri' | 'todaVida';
 // Funções Específicas
 FunEsp: 'ler' | 'mostrar';
-// Final de Arquivo
-Fim: 'acabou';
 // Verdadeiro e Falso
 Bool: 'god' | 'bigode';
 // Operadores Aritméticos, respectivamente: + - * / % ^

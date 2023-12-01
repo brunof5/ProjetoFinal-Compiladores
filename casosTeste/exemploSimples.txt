@@ -1,0 +1,12 @@
+cado abacaxi!
+cado valor!
+trem palavra!
+
+abacaxi <-| 50!
+palavra <-| "abroba2"!
+
+ler valor!
+abacaxi <-| valor botaMais abacaxi!
+
+mostrar abacaxi!
+mostrar palavra!
