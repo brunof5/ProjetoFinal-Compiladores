@@ -8,7 +8,7 @@ Est: 'truco' | 'meiPau' | 'corri' | 'todaVida';
 // Funções Específicas
 FunEsp: 'ler' | 'mostrar';
 // Final de Arquivo
-EOF: 'acabou';
+Fim: 'acabou';
 // Verdadeiro e Falso
 Bool: 'god' | 'bigode';
 // Operadores Aritméticos, respectivamente: + - * / % ^
@@ -40,4 +40,4 @@ Str: '"' (LETRA | DIGITO)* '"';
 fragment LETRA: [a-zA-Z];
 fragment DIGITO: [0-9];
 // Ignorar espaços, quebras de linha, etc
-WS: [ \r\t\n]* ->skip;
+WS: [ \r\t\n]+ ->skip;
