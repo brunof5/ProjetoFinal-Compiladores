@@ -1,11 +1,11 @@
 # UaiScript
-Trabalho desenvolvido na disciplica de Compiladores - GCC130, 2023/2, UFLA
+Trabalho desenvolvido na disciplica de Compiladores - GCC130 - 2023/2 - UFLA
 
 ## Descrição Geral da Linguagem
 * Tipos:
   * Inteiro: cado
   * Real: tiquim
-  *  Texto: trem
+  * Texto: trem
   * Booleano: paia (verdadeiro: god, falso: bigode)
 
 * Abertura e fechamento de bloco:
@@ -60,4 +60,6 @@ Trabalho desenvolvido na disciplica de Compiladores - GCC130, 2023/2, UFLA
  
 ## Analisador Léxico
 A análise léxica de algum código na linguagem UaiScript é realizada executando o programa ExemploLexer.java dentro da pasta src.
-**Observação**: o código deve estar em formato txt dentro da pasta casosTeste.
+
+## Analisador Sintático
+A análise sintática de algum código na linguagem UaiScript é realizada executando o programa CompiladorUaiScript.java dentro da pasta src.
