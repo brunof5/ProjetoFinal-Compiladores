@@ -1,0 +1,16 @@
+mostrar "Sequencia de Fibonacci"!
+
+ler n!
+
+cado fib0 <-| 0!
+cado fib1!
+fib1 <-| 1!
+
+cado cont <-| 0!
+todaVida (cont menoh (n botaMais 1)) {
+    mostrar fib0!
+    fib1 <-| fib0 botaMais fib1!
+    fib0 <-| fib1 tira fib0!
+
+    cont maisUm!
+}

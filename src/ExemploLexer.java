@@ -22,7 +22,17 @@ public class ExemploLexer {
             Token token;
             while(!lexer._hitEOF) {
                 token = lexer.nextToken();
-                System.out.println("Token: <" + lexer.getVocabulary().getSymbolicName(token.getType()) + ", " + token.getText() + ">");
+                int lexemaIndex = token.getType();
+                String lexema = lexer.getVocabulary().getSymbolicName(token.getType());
+                if(lexema.equals("EOF")) {
+                    continue;
+                }
+                if((lexemaIndex >= 1 && lexemaIndex <= 10) || (lexemaIndex >= 16 && lexemaIndex <= 21)) {
+                    System.out.println("Token: <" + lexema + ">");
+                }
+                else {
+                    System.out.println("Token: <" + lexema + ", " + token.getText() + ">");
+                }
                 System.out.println("\tLinha: " + token.getLine());
                 System.out.println("\tPos Inicial: " + token.getStartIndex());
                 System.out.println("\tPos Final: " + token.getStopIndex());
