@@ -28,7 +28,6 @@ condicao: BoolValue                     // T ou F
 tipo: Cado | Tiquim | Trem | Paia;
 bloco: AB instrucao+ FB;
 elemento: VAR | NumI | NumR | BoolValue | Str;
-numero: NumI | NumR;
 
 /***** Definição Léxica (tokens) *****/
 // Tipos

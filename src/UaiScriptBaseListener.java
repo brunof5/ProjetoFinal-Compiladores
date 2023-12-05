@@ -95,18 +95,6 @@ public class UaiScriptBaseListener implements UaiScriptListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitElemento(UaiScriptParser.ElementoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNumero(UaiScriptParser.NumeroContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNumero(UaiScriptParser.NumeroContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

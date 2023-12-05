@@ -76,14 +76,4 @@ public interface UaiScriptListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitElemento(UaiScriptParser.ElementoContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link UaiScriptParser#numero}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumero(UaiScriptParser.NumeroContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link UaiScriptParser#numero}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumero(UaiScriptParser.NumeroContext ctx);
 }
