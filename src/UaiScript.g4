@@ -2,28 +2,28 @@ grammar UaiScript;
 
 /***** Definição Sintática *****/
 programa: instrucao+ EOF;
-instrucao: tipo VAR FL							// declaração
-		 | tipo VAR OpAtrib expressao FL 		// declaração com atribuição
-		 | VAR OpAtrib expressao FL				// atribuição variável já existente
-		 | VAR OpCrem FL						// instrução de incremento ou decremento
+instrucao: tipo VAR FL                          // declaração
+	 | tipo VAR OpAtrib expressao FL        // declaração com atribuição
+	 | VAR OpAtrib expressao FL             // atribuição variável já existente
+	 | VAR OpCrem FL                        // instrução de incremento ou decremento
          | Truco condicao bloco MeiPau bloco	// if condição bloco else if condição bloco
-         | Truco condicao bloco Corri bloco		// if condição bloco else bloco
-         | Truco condicao bloco					// if condição bloco
-         | TodaVida condicao bloco				// while condição bloco
-         | Ler VAR FL							// ler entrada
-         | Mostrar expressao FL					// imprimir
+         | Truco condicao bloco Corri bloco     // if condição bloco else bloco
+         | Truco condicao bloco                 // if condição bloco
+         | TodaVida condicao bloco              // while condição bloco
+         | Ler VAR FL                           // ler entrada
+         | Mostrar expressao FL	                // imprimir
          ;
 
-expressao: elemento									// algum elemento
-         | (numero | VAR) (OpArit (numero | VAR))*	// operações aritméticas
-         | (numero | VAR) OpCrem					// operações de incremento ou decremento
-         | AP expressao FP							// operações considerando precedência
+expressao: elemento                                     // algum elemento
+         | (numero | VAR) (OpArit (numero | VAR))*      // operações aritméticas
+         | (numero | VAR) OpCrem                        // operações de incremento ou decremento
+         | AP expressao FP                              // operações considerando precedência
          ;
 
-condicao: BoolValue						// T ou F
-        | expressao OpRel expressao		// operações relacionais
-        | condicao OpLog condicao		// operações lógicas
-        | AP condicao FP				// operações considerando precedência
+condicao: BoolValue                     // T ou F
+        | expressao OpRel expressao     // operações relacionais
+        | condicao OpLog condicao       // operações lógicas
+        | AP condicao FP                // operações considerando precedência
         ;
 
 tipo: Cado | Tiquim | Trem | Paia;
