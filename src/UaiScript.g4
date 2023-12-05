@@ -10,14 +10,13 @@ instrucao: tipo VAR FL                          // declaração
          | Truco condicao bloco Corri bloco     // if condição bloco else bloco
          | Truco condicao bloco                 // if condição bloco
          | TodaVida condicao bloco              // while condição bloco
-         | Ler VAR FL                           // ler entrada
+         | Ler VAR FL                           // ler entrada, atribui uma string a VAR
          | Mostrar expressao FL	                // imprimir
          ;
 
 expressao: elemento                                     // algum elemento
-         | (numero | VAR) (OpArit (numero | VAR))*      // operações aritméticas
-         | (numero | VAR) OpCrem                        // operações de incremento ou decremento
-         | AP expressao FP                              // operações considerando precedência
+         | expressao OpCrem? OpArit expressao OpCrem?   // operações aritméticas
+         | AP expressao OpCrem? FP                      // operações considerando precedência
          ;
 
 condicao: BoolValue                     // T ou F

@@ -226,7 +226,7 @@ public class UaiScriptParser extends Parser {
 				setState(29);
 				match(OpAtrib);
 				setState(30);
-				expressao();
+				expressao(0);
 				setState(31);
 				match(FL);
 				}
@@ -239,7 +239,7 @@ public class UaiScriptParser extends Parser {
 				setState(34);
 				match(OpAtrib);
 				setState(35);
-				expressao();
+				expressao(0);
 				setState(36);
 				match(FL);
 				}
@@ -324,7 +324,7 @@ public class UaiScriptParser extends Parser {
 				setState(64);
 				match(Mostrar);
 				setState(65);
-				expressao();
+				expressao(0);
 				setState(66);
 				match(FL);
 				}
@@ -347,26 +347,19 @@ public class UaiScriptParser extends Parser {
 		public ElementoContext elemento() {
 			return getRuleContext(ElementoContext.class,0);
 		}
-		public List<NumeroContext> numero() {
-			return getRuleContexts(NumeroContext.class);
-		}
-		public NumeroContext numero(int i) {
-			return getRuleContext(NumeroContext.class,i);
-		}
-		public List<TerminalNode> VAR() { return getTokens(UaiScriptParser.VAR); }
-		public TerminalNode VAR(int i) {
-			return getToken(UaiScriptParser.VAR, i);
-		}
-		public List<TerminalNode> OpArit() { return getTokens(UaiScriptParser.OpArit); }
-		public TerminalNode OpArit(int i) {
-			return getToken(UaiScriptParser.OpArit, i);
-		}
-		public TerminalNode OpCrem() { return getToken(UaiScriptParser.OpCrem, 0); }
 		public TerminalNode AP() { return getToken(UaiScriptParser.AP, 0); }
-		public ExpressaoContext expressao() {
-			return getRuleContext(ExpressaoContext.class,0);
+		public List<ExpressaoContext> expressao() {
+			return getRuleContexts(ExpressaoContext.class);
+		}
+		public ExpressaoContext expressao(int i) {
+			return getRuleContext(ExpressaoContext.class,i);
 		}
 		public TerminalNode FP() { return getToken(UaiScriptParser.FP, 0); }
+		public List<TerminalNode> OpCrem() { return getTokens(UaiScriptParser.OpCrem); }
+		public TerminalNode OpCrem(int i) {
+			return getToken(UaiScriptParser.OpCrem, i);
+		}
+		public TerminalNode OpArit() { return getToken(UaiScriptParser.OpArit, 0); }
 		public ExpressaoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -382,116 +375,102 @@ public class UaiScriptParser extends Parser {
 	}
 
 	public final ExpressaoContext expressao() throws RecognitionException {
-		ExpressaoContext _localctx = new ExpressaoContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_expressao);
+		return expressao(0);
+	}
+
+	private ExpressaoContext expressao(int _p) throws RecognitionException {
+		ParserRuleContext _parentctx = _ctx;
+		int _parentState = getState();
+		ExpressaoContext _localctx = new ExpressaoContext(_ctx, _parentState);
+		ExpressaoContext _prevctx = _localctx;
+		int _startState = 4;
+		enterRecursionRule(_localctx, 4, RULE_expressao, _p);
+		int _la;
 		try {
 			int _alt;
-			setState(94);
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(79);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
+			switch (_input.LA(1)) {
+			case BoolValue:
+			case VAR:
+			case NumI:
+			case NumR:
+			case Str:
 				{
-				setState(70);
+				setState(71);
 				elemento();
 				}
 				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
+			case AP:
 				{
-				setState(73);
-				_errHandler.sync(this);
-				switch (_input.LA(1)) {
-				case NumI:
-				case NumR:
-					{
-					setState(71);
-					numero();
-					}
-					break;
-				case VAR:
-					{
-					setState(72);
-					match(VAR);
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				setState(82);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-				while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-					if ( _alt==1 ) {
-						{
-						{
-						setState(75);
-						match(OpArit);
-						setState(78);
-						_errHandler.sync(this);
-						switch (_input.LA(1)) {
-						case NumI:
-						case NumR:
-							{
-							setState(76);
-							numero();
-							}
-							break;
-						case VAR:
-							{
-							setState(77);
-							match(VAR);
-							}
-							break;
-						default:
-							throw new NoViableAltException(this);
-						}
-						}
-						} 
-					}
-					setState(84);
-					_errHandler.sync(this);
-					_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
-				}
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(87);
-				_errHandler.sync(this);
-				switch (_input.LA(1)) {
-				case NumI:
-				case NumR:
-					{
-					setState(85);
-					numero();
-					}
-					break;
-				case VAR:
-					{
-					setState(86);
-					match(VAR);
-					}
-					break;
-				default:
-					throw new NoViableAltException(this);
-				}
-				setState(89);
-				match(OpCrem);
-				}
-				break;
-			case 4:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(90);
+				setState(72);
 				match(AP);
-				setState(91);
-				expressao();
-				setState(92);
+				setState(73);
+				expressao(0);
+				setState(75);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==OpCrem) {
+					{
+					setState(74);
+					match(OpCrem);
+					}
+				}
+
+				setState(77);
 				match(FP);
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			_ctx.stop = _input.LT(-1);
+			setState(92);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					if ( _parseListeners!=null ) triggerExitRuleEvent();
+					_prevctx = _localctx;
+					{
+					{
+					_localctx = new ExpressaoContext(_parentctx, _parentState);
+					pushNewRecursionContext(_localctx, _startState, RULE_expressao);
+					setState(81);
+					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+					setState(83);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+					if (_la==OpCrem) {
+						{
+						setState(82);
+						match(OpCrem);
+						}
+					}
+
+					setState(85);
+					match(OpArit);
+					setState(86);
+					expressao(0);
+					setState(88);
+					_errHandler.sync(this);
+					switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+					case 1:
+						{
+						setState(87);
+						match(OpCrem);
+						}
+						break;
+					}
+					}
+					} 
+				}
+				setState(94);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -500,7 +479,7 @@ public class UaiScriptParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			exitRule();
+			unrollRecursionContexts(_parentctx);
 		}
 		return _localctx;
 	}
@@ -553,38 +532,38 @@ public class UaiScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(106);
+			setState(105);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
 			case 1:
 				{
-				setState(97);
+				setState(96);
 				match(BoolValue);
 				}
 				break;
 			case 2:
 				{
+				setState(97);
+				expressao(0);
 				setState(98);
-				expressao();
-				setState(99);
 				match(OpRel);
-				setState(100);
-				expressao();
+				setState(99);
+				expressao(0);
 				}
 				break;
 			case 3:
 				{
-				setState(102);
+				setState(101);
 				match(AP);
-				setState(103);
+				setState(102);
 				condicao(0);
-				setState(104);
+				setState(103);
 				match(FP);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(113);
+			setState(112);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -595,16 +574,16 @@ public class UaiScriptParser extends Parser {
 					{
 					_localctx = new CondicaoContext(_parentctx, _parentState);
 					pushNewRecursionContext(_localctx, _startState, RULE_condicao);
-					setState(108);
+					setState(107);
 					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-					setState(109);
+					setState(108);
 					match(OpLog);
-					setState(110);
+					setState(109);
 					condicao(3);
 					}
 					} 
 				}
-				setState(115);
+				setState(114);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
 			}
@@ -648,7 +627,7 @@ public class UaiScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(116);
+			setState(115);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 30L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -702,23 +681,23 @@ public class UaiScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(118);
+			setState(117);
 			match(AB);
-			setState(120); 
+			setState(119); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(119);
+				setState(118);
 				instrucao();
 				}
 				}
-				setState(122); 
+				setState(121); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 4196158L) != 0) );
-			setState(124);
+			setState(123);
 			match(FB);
 			}
 		}
@@ -761,7 +740,7 @@ public class UaiScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(126);
+			setState(125);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 62916608L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -809,7 +788,7 @@ public class UaiScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(128);
+			setState(127);
 			_la = _input.LA(1);
 			if ( !(_la==NumI || _la==NumR) ) {
 			_errHandler.recoverInline(this);
@@ -834,21 +813,30 @@ public class UaiScriptParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
+		case 2:
+			return expressao_sempred((ExpressaoContext)_localctx, predIndex);
 		case 3:
 			return condicao_sempred((CondicaoContext)_localctx, predIndex);
 		}
 		return true;
 	}
-	private boolean condicao_sempred(CondicaoContext _localctx, int predIndex) {
+	private boolean expressao_sempred(ExpressaoContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
 			return precpred(_ctx, 2);
 		}
 		return true;
 	}
+	private boolean condicao_sempred(CondicaoContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 1:
+			return precpred(_ctx, 2);
+		}
+		return true;
+	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\u001a\u0083\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
+		"\u0004\u0001\u001a\u0082\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001"+
 		"\u0002\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004"+
 		"\u0002\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007"+
 		"\u0001\u0000\u0004\u0000\u0012\b\u0000\u000b\u0000\f\u0000\u0013\u0001"+
@@ -860,21 +848,21 @@ public class UaiScriptParser extends Parser {
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001"+
 		"\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0001\u0003\u0001E\b"+
-		"\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0003\u0002J\b\u0002\u0001"+
-		"\u0002\u0001\u0002\u0001\u0002\u0003\u0002O\b\u0002\u0005\u0002Q\b\u0002"+
-		"\n\u0002\f\u0002T\t\u0002\u0001\u0002\u0001\u0002\u0003\u0002X\b\u0002"+
-		"\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0003\u0002"+
-		"_\b\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0003\u0003"+
-		"k\b\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0005\u0003p\b\u0003\n\u0003"+
-		"\f\u0003s\t\u0003\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0004"+
-		"\u0005y\b\u0005\u000b\u0005\f\u0005z\u0001\u0005\u0001\u0005\u0001\u0006"+
-		"\u0001\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0000\u0001\u0006\b\u0000"+
+		"\u0001\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0003"+
+		"\u0002L\b\u0002\u0001\u0002\u0001\u0002\u0003\u0002P\b\u0002\u0001\u0002"+
+		"\u0001\u0002\u0003\u0002T\b\u0002\u0001\u0002\u0001\u0002\u0001\u0002"+
+		"\u0003\u0002Y\b\u0002\u0005\u0002[\b\u0002\n\u0002\f\u0002^\t\u0002\u0001"+
+		"\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001"+
+		"\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0003\u0003j\b\u0003\u0001"+
+		"\u0003\u0001\u0003\u0001\u0003\u0005\u0003o\b\u0003\n\u0003\f\u0003r\t"+
+		"\u0003\u0001\u0004\u0001\u0004\u0001\u0005\u0001\u0005\u0004\u0005x\b"+
+		"\u0005\u000b\u0005\f\u0005y\u0001\u0005\u0001\u0005\u0001\u0006\u0001"+
+		"\u0006\u0001\u0007\u0001\u0007\u0001\u0007\u0000\u0002\u0004\u0006\b\u0000"+
 		"\u0002\u0004\u0006\b\n\f\u000e\u0000\u0003\u0001\u0000\u0001\u0004\u0002"+
-		"\u0000\u000b\u000b\u0016\u0019\u0001\u0000\u0017\u0018\u008f\u0000\u0011"+
-		"\u0001\u0000\u0000\u0000\u0002D\u0001\u0000\u0000\u0000\u0004^\u0001\u0000"+
-		"\u0000\u0000\u0006j\u0001\u0000\u0000\u0000\bt\u0001\u0000\u0000\u0000"+
-		"\nv\u0001\u0000\u0000\u0000\f~\u0001\u0000\u0000\u0000\u000e\u0080\u0001"+
+		"\u0000\u000b\u000b\u0016\u0019\u0001\u0000\u0017\u0018\u008c\u0000\u0011"+
+		"\u0001\u0000\u0000\u0000\u0002D\u0001\u0000\u0000\u0000\u0004O\u0001\u0000"+
+		"\u0000\u0000\u0006i\u0001\u0000\u0000\u0000\bs\u0001\u0000\u0000\u0000"+
+		"\nu\u0001\u0000\u0000\u0000\f}\u0001\u0000\u0000\u0000\u000e\u007f\u0001"+
 		"\u0000\u0000\u0000\u0010\u0012\u0003\u0002\u0001\u0000\u0011\u0010\u0001"+
 		"\u0000\u0000\u0000\u0012\u0013\u0001\u0000\u0000\u0000\u0013\u0011\u0001"+
 		"\u0000\u0000\u0000\u0013\u0014\u0001\u0000\u0000\u0000\u0014\u0015\u0001"+
@@ -900,33 +888,32 @@ public class UaiScriptParser extends Parser {
 		"\u0000D&\u0001\u0000\u0000\u0000D)\u0001\u0000\u0000\u0000D/\u0001\u0000"+
 		"\u0000\u0000D5\u0001\u0000\u0000\u0000D9\u0001\u0000\u0000\u0000D=\u0001"+
 		"\u0000\u0000\u0000D@\u0001\u0000\u0000\u0000E\u0003\u0001\u0000\u0000"+
-		"\u0000F_\u0003\f\u0006\u0000GJ\u0003\u000e\u0007\u0000HJ\u0005\u0016\u0000"+
-		"\u0000IG\u0001\u0000\u0000\u0000IH\u0001\u0000\u0000\u0000JR\u0001\u0000"+
-		"\u0000\u0000KN\u0005\f\u0000\u0000LO\u0003\u000e\u0007\u0000MO\u0005\u0016"+
-		"\u0000\u0000NL\u0001\u0000\u0000\u0000NM\u0001\u0000\u0000\u0000OQ\u0001"+
-		"\u0000\u0000\u0000PK\u0001\u0000\u0000\u0000QT\u0001\u0000\u0000\u0000"+
-		"RP\u0001\u0000\u0000\u0000RS\u0001\u0000\u0000\u0000S_\u0001\u0000\u0000"+
-		"\u0000TR\u0001\u0000\u0000\u0000UX\u0003\u000e\u0007\u0000VX\u0005\u0016"+
-		"\u0000\u0000WU\u0001\u0000\u0000\u0000WV\u0001\u0000\u0000\u0000XY\u0001"+
-		"\u0000\u0000\u0000Y_\u0005\u000f\u0000\u0000Z[\u0005\u0011\u0000\u0000"+
-		"[\\\u0003\u0004\u0002\u0000\\]\u0005\u0012\u0000\u0000]_\u0001\u0000\u0000"+
-		"\u0000^F\u0001\u0000\u0000\u0000^I\u0001\u0000\u0000\u0000^W\u0001\u0000"+
-		"\u0000\u0000^Z\u0001\u0000\u0000\u0000_\u0005\u0001\u0000\u0000\u0000"+
-		"`a\u0006\u0003\uffff\uffff\u0000ak\u0005\u000b\u0000\u0000bc\u0003\u0004"+
-		"\u0002\u0000cd\u0005\r\u0000\u0000de\u0003\u0004\u0002\u0000ek\u0001\u0000"+
-		"\u0000\u0000fg\u0005\u0011\u0000\u0000gh\u0003\u0006\u0003\u0000hi\u0005"+
-		"\u0012\u0000\u0000ik\u0001\u0000\u0000\u0000j`\u0001\u0000\u0000\u0000"+
-		"jb\u0001\u0000\u0000\u0000jf\u0001\u0000\u0000\u0000kq\u0001\u0000\u0000"+
-		"\u0000lm\n\u0002\u0000\u0000mn\u0005\u000e\u0000\u0000np\u0003\u0006\u0003"+
-		"\u0003ol\u0001\u0000\u0000\u0000ps\u0001\u0000\u0000\u0000qo\u0001\u0000"+
-		"\u0000\u0000qr\u0001\u0000\u0000\u0000r\u0007\u0001\u0000\u0000\u0000"+
-		"sq\u0001\u0000\u0000\u0000tu\u0007\u0000\u0000\u0000u\t\u0001\u0000\u0000"+
-		"\u0000vx\u0005\u0013\u0000\u0000wy\u0003\u0002\u0001\u0000xw\u0001\u0000"+
-		"\u0000\u0000yz\u0001\u0000\u0000\u0000zx\u0001\u0000\u0000\u0000z{\u0001"+
-		"\u0000\u0000\u0000{|\u0001\u0000\u0000\u0000|}\u0005\u0014\u0000\u0000"+
-		"}\u000b\u0001\u0000\u0000\u0000~\u007f\u0007\u0001\u0000\u0000\u007f\r"+
-		"\u0001\u0000\u0000\u0000\u0080\u0081\u0007\u0002\u0000\u0000\u0081\u000f"+
-		"\u0001\u0000\u0000\u0000\n\u0013DINRW^jqz";
+		"\u0000FG\u0006\u0002\uffff\uffff\u0000GP\u0003\f\u0006\u0000HI\u0005\u0011"+
+		"\u0000\u0000IK\u0003\u0004\u0002\u0000JL\u0005\u000f\u0000\u0000KJ\u0001"+
+		"\u0000\u0000\u0000KL\u0001\u0000\u0000\u0000LM\u0001\u0000\u0000\u0000"+
+		"MN\u0005\u0012\u0000\u0000NP\u0001\u0000\u0000\u0000OF\u0001\u0000\u0000"+
+		"\u0000OH\u0001\u0000\u0000\u0000P\\\u0001\u0000\u0000\u0000QS\n\u0002"+
+		"\u0000\u0000RT\u0005\u000f\u0000\u0000SR\u0001\u0000\u0000\u0000ST\u0001"+
+		"\u0000\u0000\u0000TU\u0001\u0000\u0000\u0000UV\u0005\f\u0000\u0000VX\u0003"+
+		"\u0004\u0002\u0000WY\u0005\u000f\u0000\u0000XW\u0001\u0000\u0000\u0000"+
+		"XY\u0001\u0000\u0000\u0000Y[\u0001\u0000\u0000\u0000ZQ\u0001\u0000\u0000"+
+		"\u0000[^\u0001\u0000\u0000\u0000\\Z\u0001\u0000\u0000\u0000\\]\u0001\u0000"+
+		"\u0000\u0000]\u0005\u0001\u0000\u0000\u0000^\\\u0001\u0000\u0000\u0000"+
+		"_`\u0006\u0003\uffff\uffff\u0000`j\u0005\u000b\u0000\u0000ab\u0003\u0004"+
+		"\u0002\u0000bc\u0005\r\u0000\u0000cd\u0003\u0004\u0002\u0000dj\u0001\u0000"+
+		"\u0000\u0000ef\u0005\u0011\u0000\u0000fg\u0003\u0006\u0003\u0000gh\u0005"+
+		"\u0012\u0000\u0000hj\u0001\u0000\u0000\u0000i_\u0001\u0000\u0000\u0000"+
+		"ia\u0001\u0000\u0000\u0000ie\u0001\u0000\u0000\u0000jp\u0001\u0000\u0000"+
+		"\u0000kl\n\u0002\u0000\u0000lm\u0005\u000e\u0000\u0000mo\u0003\u0006\u0003"+
+		"\u0003nk\u0001\u0000\u0000\u0000or\u0001\u0000\u0000\u0000pn\u0001\u0000"+
+		"\u0000\u0000pq\u0001\u0000\u0000\u0000q\u0007\u0001\u0000\u0000\u0000"+
+		"rp\u0001\u0000\u0000\u0000st\u0007\u0000\u0000\u0000t\t\u0001\u0000\u0000"+
+		"\u0000uw\u0005\u0013\u0000\u0000vx\u0003\u0002\u0001\u0000wv\u0001\u0000"+
+		"\u0000\u0000xy\u0001\u0000\u0000\u0000yw\u0001\u0000\u0000\u0000yz\u0001"+
+		"\u0000\u0000\u0000z{\u0001\u0000\u0000\u0000{|\u0005\u0014\u0000\u0000"+
+		"|\u000b\u0001\u0000\u0000\u0000}~\u0007\u0001\u0000\u0000~\r\u0001\u0000"+
+		"\u0000\u0000\u007f\u0080\u0007\u0002\u0000\u0000\u0080\u000f\u0001\u0000"+
+		"\u0000\u0000\n\u0013DKOSX\\ipy";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

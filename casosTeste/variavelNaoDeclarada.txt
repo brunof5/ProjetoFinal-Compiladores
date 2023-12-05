@@ -1,0 +1,18 @@
+mostrar "teste para erro variavel nao declarada!"!
+
+trem entrada1!
+ler entrada1!
+
+ler entrada2!
+
+mostrar (entrada1 botaMais entrada2)!
+
+entrada2 tiraUm!
+
+num0 <-| 12.42!
+
+cado num1 <-| 20!
+
+mostrar ((num1 maisUm) botaMais 50 tira 30 botaMais num2 vezes (num3 tiraUm))!
+
+paia controle1 <-| controle0 !

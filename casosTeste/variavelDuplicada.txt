@@ -1,0 +1,8 @@
+tiquim num1!
+cado num2 <-| 32!
+cado num2!
+
+num1 <-| 12.42!
+
+mostrar num1!
+mostrar num2!
