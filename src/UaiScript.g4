@@ -3,7 +3,7 @@ grammar UaiScript;
 /***** Definição Sintática *****/
 programa: instrucao+ EOF;
 instrucao: tipo VAR FL							// declaração
-		 | tipo VAR OpAtrib expressao FL 		// atribuição nova variável
+		 | tipo VAR OpAtrib expressao FL 		// declaração com atribuição
 		 | VAR OpAtrib expressao FL				// atribuição variável já existente
 		 | VAR OpCrem FL						// instrução de incremento ou decremento
          | Truco condicao bloco MeiPau bloco	// if condição bloco else if condição bloco
@@ -11,7 +11,7 @@ instrucao: tipo VAR FL							// declaração
          | Truco condicao bloco					// if condição bloco
          | TodaVida condicao bloco				// while condição bloco
          | Ler VAR FL							// ler entrada
-         | Mostrar elemento FL					// imprimir algum elemento
+         | Mostrar expressao FL					// imprimir
          ;
 
 expressao: elemento									// algum elemento

@@ -184,9 +184,6 @@ public class UaiScriptParser extends Parser {
 		public TerminalNode TodaVida() { return getToken(UaiScriptParser.TodaVida, 0); }
 		public TerminalNode Ler() { return getToken(UaiScriptParser.Ler, 0); }
 		public TerminalNode Mostrar() { return getToken(UaiScriptParser.Mostrar, 0); }
-		public ElementoContext elemento() {
-			return getRuleContext(ElementoContext.class,0);
-		}
 		public InstrucaoContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -327,7 +324,7 @@ public class UaiScriptParser extends Parser {
 				setState(64);
 				match(Mostrar);
 				setState(65);
-				elemento();
+				expressao();
 				setState(66);
 				match(FL);
 				}
@@ -897,7 +894,7 @@ public class UaiScriptParser extends Parser {
 		"\u000067\u0003\u0006\u0003\u000078\u0003\n\u0005\u00008E\u0001\u0000\u0000"+
 		"\u00009:\u0005\b\u0000\u0000:;\u0003\u0006\u0003\u0000;<\u0003\n\u0005"+
 		"\u0000<E\u0001\u0000\u0000\u0000=>\u0005\t\u0000\u0000>?\u0005\u0016\u0000"+
-		"\u0000?E\u0005\u0015\u0000\u0000@A\u0005\n\u0000\u0000AB\u0003\f\u0006"+
+		"\u0000?E\u0005\u0015\u0000\u0000@A\u0005\n\u0000\u0000AB\u0003\u0004\u0002"+
 		"\u0000BC\u0005\u0015\u0000\u0000CE\u0001\u0000\u0000\u0000D\u0017\u0001"+
 		"\u0000\u0000\u0000D\u001b\u0001\u0000\u0000\u0000D!\u0001\u0000\u0000"+
 		"\u0000D&\u0001\u0000\u0000\u0000D)\u0001\u0000\u0000\u0000D/\u0001\u0000"+

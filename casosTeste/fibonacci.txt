@@ -1,5 +1,6 @@
 mostrar "Sequencia de Fibonacci"!
 
+cado n!
 ler n!
 
 cado fib0 <-| 0!
