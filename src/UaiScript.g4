@@ -14,12 +14,12 @@ instrucao: tipo VAR FL                          // declaração
          | Mostrar expressao FL	                // imprimir
          ;
 
-expressao: elemento                                     // algum elemento
-         | expressao OpCrem? OpArit expressao OpCrem?   // operações aritméticas
-         | AP expressao OpCrem? FP                      // operações considerando precedência
+expressao: elemento                     // algum elemento
+         | expressao OpArit expressao   // operações aritméticas
+         | AP expressao OpCrem? FP      // operações considerando precedência
          ;
 
-condicao: BoolValue                     // T ou F
+condicao: expressao                     // alguma expressao
         | expressao OpRel expressao     // operações relacionais
         | condicao OpLog condicao       // operações lógicas
         | AP condicao FP                // operações considerando precedência

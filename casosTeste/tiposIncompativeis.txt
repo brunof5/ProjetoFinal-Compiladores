@@ -1,2 +1,10 @@
-paia manga!
-ler manga!
+cado num1 <-| (2.4 botaMais 5.5)!
+cado num1 <-| 25!
+
+paia num2!
+num2 maisUm!
+
+tiquim palavra!
+ler palavra!
+
+truco (controle) { mostrar "oi"! }
