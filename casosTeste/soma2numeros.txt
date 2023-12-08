@@ -1,0 +1,7 @@
+tiquim num1 <-| 25.3!
+
+tiquim num2 <-| 53.1!
+
+tiquim soma <-| (num1 botaMais num2)!
+
+mostrar soma!

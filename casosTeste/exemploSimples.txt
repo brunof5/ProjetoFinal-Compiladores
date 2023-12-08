@@ -1,11 +1,10 @@
 cado abacaxi!
-cado valor!
+cado valor <-| 2!
 trem palavra!
 
 abacaxi <-| 50!
 palavra <-| "abroba2"!
 
-ler valor!
 abacaxi <-| valor botaMais abacaxi!
 
 mostrar abacaxi!

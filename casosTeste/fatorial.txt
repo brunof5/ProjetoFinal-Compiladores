@@ -1,0 +1,9 @@
+cado numero <-| 7!
+cado resultado <-| 0!
+
+todaVida (numero maioh 0) {
+  resultado <-| resultado botaMais numero!
+  numero tiraUm!
+}
+
+mostrar resultado!
