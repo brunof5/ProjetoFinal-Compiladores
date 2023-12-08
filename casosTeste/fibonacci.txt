@@ -1,7 +1,6 @@
 mostrar "Sequencia de Fibonacci"!
 
-cado n!
-ler n!
+cado n <-| 10!
 
 cado fib0 <-| 0!
 cado fib1!
