@@ -63,3 +63,6 @@ A análise léxica de algum código na linguagem UaiScript é realizada executan
 
 ## Analisador Sintático
 A análise sintática de algum código na linguagem UaiScript é realizada executando o programa CompiladorUaiScript.java dentro da pasta src.
+
+## Analisador Semântico
+A análise semântica de algum código na linguagem UaiScript é realizada executando o programa AnalisadorSemantico.java dentro da pasta src.
