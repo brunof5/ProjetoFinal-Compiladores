@@ -4,7 +4,7 @@ cado num1 <-| 25!
 paia num2!
 num2 maisUm!
 
+tiquim num3 <-| ((2.4 maisUm) tira "oi")!
+
 tiquim palavra!
 ler palavra!
-
-truco (controle) { mostrar "oi"! }

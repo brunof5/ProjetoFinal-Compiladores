@@ -10,16 +10,13 @@ public class MyListener extends UaiScriptBaseListener {
      * 2. Checagem variaveis não declaradas
      * 3. Checagem tipos incompativeis
      * Ou seja, por exemplo, mesmo se uma instrução com VAR tenha os 3 erros, somente aparecerá o 1º erro
-     */
-    
-    // <id, tipo>
+    */
+
     private Map<String, String> tabelaSimbolos = new HashMap<String, String>();
     private String tipoElemento = null;
 
     @Override
     public void exitInstrucao(UaiScriptParser.InstrucaoContext ctx) {
-
-        System.out.println("Saiu instrucao: " + ctx.getText());
 
         // tipo VAR OpAtrib expressao FL (declaração)
         if(ctx.tipo() != null && ctx.VAR() != null && ctx.OpAtrib() != null && ctx.expressao() != null && ctx.FL() != null) {
@@ -31,8 +28,6 @@ public class MyListener extends UaiScriptBaseListener {
                     tabelaSimbolos.put(id, tipo);
                 }
             }
-
-            tipoElemento = null;
         }
 
         // tipo VAR FL (declaração)
@@ -68,18 +63,15 @@ public class MyListener extends UaiScriptBaseListener {
                 verificarTipoIncompativelTexto(id, ctx.start);
             }
         }
+
+        tipoElemento = null;
     }
 
     @Override
     public void enterExpressao(UaiScriptParser.ExpressaoContext ctx) {
 
-        System.out.println("Entrou expressao: " + ctx.getText());
-
         // AP expressao OpCrem? FP (considerando o OpCrem)
         if(ctx.OpCrem() != null) {
-
-            System.out.println("Incremento/Decremento");
-            String expressao = ctx.expressao(0).getText().toString();
             UaiScriptParser.ElementoContext elemento = ctx.expressao(0).elemento();
             String tipo = verificarTipoElemento(elemento);
             if(!tipo.equals("cado") && !tipo.equals("tiquim")) {
@@ -87,8 +79,6 @@ public class MyListener extends UaiScriptBaseListener {
                 System.out.println("\tTipo esperado: cado ou tiquim");
                 imprimirErro(ctx.expressao(0).start);
             }
-            System.out.println("Dentro OpCrem: " + expressao + " " + tipo);
-            System.out.println("Antes de verificar:" + tipoElemento);
             if(tipoElemento != null && !tipo.equals(tipoElemento)) {
                 tipoElemento = "indefinido";
             }
@@ -96,38 +86,28 @@ public class MyListener extends UaiScriptBaseListener {
 
         // elemento
         if(ctx.elemento() != null) {
-            String expressao = ctx.elemento().getText().toString();
             if(tipoElemento == null) {
                 tipoElemento = verificarTipoElemento(ctx.elemento());
             }
             else if(!tipoElemento.equals("indefinido")) {
                 tipoElemento = verificarTipoElemento(ctx.elemento());
             }
-            
-            System.out.println(expressao + " " + tipoElemento);
         }
 
         // expressao OpArit expressao
         else if(ctx.OpArit() != null) {
 
-            System.out.println("Aritmetico");
-
-            String expressao1 = ctx.expressao(0).getText().toString();
             UaiScriptParser.ElementoContext elemento1 = ctx.expressao(0).elemento();
             String tipo1 = "indefinido";
             if(elemento1 != null) {
                 tipo1 = verificarTipoElemento(elemento1);
             }
             
-            String expressao2 = ctx.expressao(1).getText().toString();
             UaiScriptParser.ElementoContext elemento2 = ctx.expressao(1).elemento();
             String tipo2 = "indefinido";
             if(elemento2 != null) {
                 tipo2 = verificarTipoElemento(elemento2);
             }
-    
-            System.out.println(expressao1 + " " + tipo1);
-            System.out.println(expressao2 + " " + tipo2);
 
             if(!tipo1.equals("indefinido") && tipo2.equals("indefinido")) {
                 tipoElemento = tipo1;
@@ -138,45 +118,6 @@ public class MyListener extends UaiScriptBaseListener {
             else if(!tipo1.equals(tipo2)) {
                 tipoElemento = "indefinido";
             }
-        }
-    }
-
-    @Override
-    public void enterCondicao(UaiScriptParser.CondicaoContext ctx) {
-
-        System.out.println("Entrou condicao: " + ctx.getText());
-        
-        // expressao OpRel expressao
-        /*if(ctx.expressao() != null && ctx.OpRel() != null) {
-            String tipo1 = tabelaSimbolos.get(ctx.expressao(0).getText());
-            String tipo2 = tabelaSimbolos.get(ctx.expressao(1).getText());
-    
-            if(tipo1 != null && tipo2 != null && !tipo1.equals(tipo2)) {
-                System.out.println("Tipos incompatíveis em operação relacional: " +
-                    ctx.expressao(0).getText() + " e " + ctx.expressao(1).getText());
-                regraInstrucaoImprimir(ctx);
-            }
-        }*/
-
-        // condicao OpLog condicao
-        /*if(ctx.condicao() != null && ctx.OpLog() != null) {
-            String tipo1 = tabelaSimbolos.get(ctx.condicao(0).getText());
-            String tipo2 = tabelaSimbolos.get(ctx.condicao(1).getText());
-    
-            if (tipo1 != null && tipo2 != null && !tipo1.equals("god") && !tipo1.equals("bigode") &&
-                !tipo2.equals("god") && !tipo2.equals("bigode")) {
-                System.out.println("Tipos incompatíveis em operação lógica: " +
-                    ctx.condicao(0).getText() + " e " + ctx.condicao(1).getText());
-                System.out.println("\tTipos esperados: god ou bigode");
-                regraInstrucaoImprimir(ctx);
-            }
-        }*/
-    }
-
-    @Override
-    public void enterElemento(UaiScriptParser.ElementoContext ctx) {
-        if(ctx.VAR() != null) {
-            
         }
     }
 

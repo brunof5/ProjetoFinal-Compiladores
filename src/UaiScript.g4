@@ -20,7 +20,7 @@ expressao: elemento                     // algum elemento
          ;
 
 condicao: expressao                     // alguma expressao
-        | expressao OpRel expressao     // operações relacionais
+        | condicao OpRel condicao       // operações relacionais
         | condicao OpLog condicao       // operações lógicas
         | AP condicao FP                // operações considerando precedência
         ;
